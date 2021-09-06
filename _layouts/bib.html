@@ -2,17 +2,13 @@
 ---
 
 <div class="row">
-  <div class="col-sm-2 abbr">
-  {% if entry.abbr %}
-    {% if site.data.venues[entry.abbr] %}
-    <abbr class="badge"><a href="{{site.data.venues[entry.abbr].url}}" target="_blank">{{entry.abbr}}</a></abbr>
-    {% else %}
-    <abbr class="badge">{{entry.abbr}}</abbr>
-    {% endif %}
+  <div class="col-sm-3">
+  {% if entry.img %}
+    <img class="img-fluid rounded z-depth-1" src="{{ entry.img | relative_url }}" alt=""/>
   {% endif %}
   </div>
 
-  <div id="{{entry.key}}" class="col-sm-8">
+  <div id="{{entry.key}}" class="col-sm-9">
     {% if entry.type == "thesis" %}
       {{reference}}
     {% else %}
@@ -86,9 +82,6 @@
     {% if entry.arxiv %}
       <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button" target="_blank">arXiv</a>
     {% endif %}
-    {% if entry.bibtex_show %}
-        <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-    {% endif %}
     {% if entry.html %}
       <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button" target="_blank">HTML</a>
     {% endif %}
@@ -129,19 +122,15 @@
     {% if entry.website %}
       <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Website</a>
     {% endif %}
+    {% if entry.video %}
+    <a href="{{ entry.video }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Video</a>
+  {% endif %}
     </div>
 
     <!-- Hidden abstract block -->
     {% if entry.abstract %}
     <div class="abstract hidden">
       <p>{{ entry.abstract }}</p>
-    </div>
-    {% endif %}
-
-    <!-- Hidden bibtex block -->
-    {% if entry.bibtex_show %}
-    <div class="bibtex hidden">
-      {% highlight bibtex %}{{ entry.bibtex }}{% endhighlight %}
     </div>
     {% endif %}
   </div>
