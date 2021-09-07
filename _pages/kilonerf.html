@@ -3,7 +3,7 @@ layout: none
 title: KiloNeRF
 permalink: /kilonerf/
 description: A growing collection of your cool projects.
-nav: false
+nav: true
 horizontal: false
 ---
 
@@ -30,10 +30,10 @@ horizontal: false
       <h1>KiloNeRF</h1>
       <h3>Speeding up Neural Radiance Fields with Thousands of Tiny MLPs</h3>
       <div style="margin-bottom: 10px;">
-        <span style="margin-right: 10px; font-size: 1.2em;">Christian Reiser</span>
-        <span style="font-size: 1.2em; margin-right: 10px">Songyou Peng</span> <span
-          style="font-size: 1.2em; margin-right: 10px">Yiyi Liao</span> <span
-          style="font-size: 1.2em; margin-right: 10px">Andreas Geiger</span>
+        <span style="margin-right: 10px; font-size: 1.2em;"><a href="/">Christian Reiser</a></span>
+        <span style="font-size: 1.2em; margin-right: 10px"><a href="https://pengsongyou.github.io/">Songyou Peng</a></span> <span
+          style="font-size: 1.2em; margin-right: 10px"><a href="https://yiyiliao.github.io/">Yiyi Liao</a></span> <span
+          style="font-size: 1.2em; margin-right: 10px"><a href="http://cvlibs.net/">Andreas Geiger</a></span>
       </div>
       <div>
         <span style="margin-right: 10px; font-size: 1.2em;">Max Planck Institute for Intelligent Systems, ETH Zurich and University
@@ -44,16 +44,14 @@ horizontal: false
       </div>
     </div>
     <div class="text-center" style="margin-top: 60px; margin-bottom: 20px;">
-      <img id="teaser" src="{{ '/assets/img/kilonerf/teaser_2x2.svg' | relative_url }}" alt="Responsive image">
+      <img id="teaser" src="{{ '/assets/img/kilonerf/teaser_2x2.jpg' | relative_url }}" alt="Responsive image">
     </div>
     <div class="text-center" style="font-size: 1.5em; margin-bottom: 30px;">
-      <a href="http://www.cvlibs.net/publications/Niemeyer2021CVPR.pdf" target="_blank" style="margin-right: 20px;">[Paper]</a>
-      <a href="http://www.cvlibs.net/publications/Niemeyer2021CVPR_supplementary.pdf" target="_blank" style="margin-right: 20px;">[Supplementary]</a>
-      <a href="https://github.com/autonomousvision/giraffe" target="_blank" style="margin-right: 20px;">[Code]</a>
-      <a href="http://autonomousvision.github.io/giraffe" target="_blank" style="margin-right: 20px;">[Blog]</a>
-      <a href="http://www.youtube.com/watch?v=fIaDXC-qRSg&vq=hd1080&autoplay=1" target="_blank" style="margin-right: 20px;">[Video]</a>
-      <a href="https://m-niemeyer.github.io/slides/talks/giraffe/index.html" target="_blank" style="margin-right: 20px;">[Interactive Slides]</a>
-      <a href="https://www.youtube.com/watch?v=scnXyCSMJF4" target="_blank">[Talk]</a>
+      <a href="http://www.cvlibs.net/publications/Reiser2021ICCV.pdf" target="_blank" style="margin-right: 20px;">[Paper]</a>
+      <a href="http://www.cvlibs.net/publications/Reiser2021ICCV_supplementary.pdf" target="_blank" style="margin-right: 20px;">[Supplementary]</a>
+      <a href="https://github.com/creiser/kilonerf" target="_blank" style="margin-right: 20px;">[Code]</a>
+      <a href="http://autonomousvision.github.io/kilonerf" target="_blank" style="margin-right: 20px;">[Blog]</a>
+      <a href="http://www.youtube.com/watch?v=qvsMMDonF28&vq=hd1080&autoplay=1" target="_blank" style="margin-right: 20px;">[Video]</a>
     </div>
     <div>
       <h2 class="text-center">
@@ -63,7 +61,7 @@ horizontal: false
         NeRF synthesizes novel views of a scene with unprecedented quality by fitting a neural radiance field to RGB images. However, NeRF requires querying a deep Multi-Layer Perceptron (MLP) millions of times, leading to slow rendering times, even on modern GPUs. In this paper, we demonstrate that real-time rendering is possible by utilizing thousands of tiny MLPs instead of one single large MLP. In our setting, each individual MLP only needs to represent parts of the scene, thus smaller and faster-to-evaluate MLPs can be used. By combining this divide-and-conquer strategy with further optimizations, rendering is accelerated by three orders of magnitude compared to the original NeRF model without incurring high storage costs. Further, using teacher-student distillation for training, we show that this speed-up can be achieved without sacrificing visual quality.
       </p>
       <p>
-        <span style="font-weight: bold;">TL;DR:</span> We incorporate a compositional 3D scene representation into the generative model which leads to more controllable image synthesis.
+        <span style="font-weight: bold;">TL;DR:</span> Real-time rendering of NeRF by representing the scene as many independent MLPs arranged on a voxel grid.
       </p>
     </div>
     <div style="margin-top:10px;">
@@ -71,220 +69,43 @@ horizontal: false
         Video
       </h2>
       <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/fIaDXC-qRSg" allowfullscreen></iframe>
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qvsMMDonF28" allowfullscreen></iframe>
       </div>
     </div>
     <div style="margin-top:20px;">
       <h2 class="text-center">
         Results
       </h2>
-      <h4>Comparison Against a 2D-based GAN</h4>
-      <p>
-        Note how translating one object affects the other for a 2D-based GAN. In contrast, we incorporate <span
-          style="font-weight: bold;">compositional 3D scene structure</span> into the generative model, leading to more
-        consistent results.</p>
+      <p>The following videos were rendered in real-time with the interactive viewer provided in our <a href="https://github.com/creiser/kilonerf" target="_blank">code release</a>.</p>
       <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
+        <div class="col-md-12 col-sm-12 col-xs-12 gallery">
           <div class="embed-responsive embed-responsive-16by9">
             <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/clevr/2dgan.webm" type="video/webm">
+              <source src="../assets/video/lego.mp4" type="video/mp4">
             </video>
-          </div>
-          <div class="text-center">
-            <p>Single-Object Translation for 2D-based GAN</p>
           </div>
         </div>
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
+        <div class="col-md-12 col-sm-12 col-xs-12 gallery">
           <div class="embed-responsive embed-responsive-16by9">
             <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/clevr/ours.webm" type="video/webm">
+              <source src="../assets/video/palace.mp4" type="video/mp4">
             </video>
-          </div>
-          <div class="text-center">
-            <p>Single-Object Translation for Our Method</p>
-          </div>
-        </div>
-      </div>
-      <p>We can perform more complex operations like circular translations or adding objects at test time.</p>
-      <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/clevr/translation_circle_sm.webm" type="video/webm">
-            </video>
-          </div>
-          <div class="text-center">
-            <p>Circular Translations</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/clevr/add_objects.webm" type="video/webm">
-            </video>
-          </div>
-          <div class="text-center">
-            <p>Add Objects (Trained on Two-Object Scenes)</p>
-          </div>
-        </div>
-      </div>
-      <h4>Controllable Scene Generation</h4>
-      <p>We show more examples where we control the scene during image synthesis.</p>
-      <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/cars/rotation_object_sm.webm" type="video/webm">
-            </video>
-          </div>
-          <div class="text-center">
-            <p>Rotate Object</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/celebahq/rotate_celebahq.webm" type="video/webm">
-            </video>
-          </div>
-          <div class="text-center">
-            <p>Rotate Object</p>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
+        <div class="col-md-12 col-sm-12 col-xs-12 gallery">
           <div class="embed-responsive embed-responsive-16by9">
             <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/cars/translation_horizontal_sm.webm" type="video/webm">
+              <source src="../assets/video/ship.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="text-center">
-            <p>Horizontal Translation</p>
-          </div>
         </div>
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
+        <div class="col-md-12 col-sm-12 col-xs-12 gallery">
           <div class="embed-responsive embed-responsive-16by9">
             <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/cars/translation_vertical_sm.webm" type="video/webm">
-              </video>
-          </div>
-          <div class="text-center">
-            <p>Vertical Translation</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/cars/cars_app.webm" type="video/webm">
+              <source src="../assets/video/chair.mp4" type="video/mp4">
             </video>
-          </div>
-          <div class="text-center">
-            <p>Change Object Appearance</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/celebahq/app_celebahq.webm" type="video/webm">
-              </video>
-          </div>
-          <div class="text-center">
-            <p>Change Object Appearance</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/cars/bg_cars.webm" type="video/webm">
-            </video>
-          </div>
-          <div class="text-center">
-            <p>Change Background Appearance</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/churches/interpolate_appearance_bg_sm.webm" type="video/webm">
-              </video>
-          </div>
-          <div class="text-center">
-            <p>Change Background Appearance</p>
-          </div>
-        </div>
-      </div>
-      <h4>Out-of-Distribution Generalization</h4>
-      <p>As our model disentangles individual objects, we are able to generate out of distribution samples. For example, we can increase the horizontal translation range.</p>
-      <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/cars/translation_horizontal_sm.webm" type="video/webm">
-            </video>
-          </div>
-          <div class="text-center">
-            <p>Training Distribution</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/outof/translation_horizontal_sm.webm" type="video/webm">
-              </video>
-          </div>
-          <div class="text-center">
-            <p>Out-Of-Distribution</p>
-          </div>
-        </div>
-      </div>
-      <p>We can increase the depth translation range.</p>
-      <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/cars/translation_vertical_sm.webm" type="video/webm">
-            </video>
-          </div>
-          <div class="text-center">
-            <p>Training Distribution</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/outof/translation_vertical_sm.webm" type="video/webm">
-              </video>
-          </div>
-          <div class="text-center">
-            <p>Out-Of-Distribution</p>
-          </div>
-        </div>
-      </div>
-      <p>We can add more objects at test time.</p>
-      <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/clevr/add_objects.webm" type="video/webm">
-            </video>
-          </div>
-          <div class="text-center">
-            <p>Out-Of Distribution (Trained On Two-Object Scenes)</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls loop muted autoplay class="embed-responsive-item">
-              <source src="gfx/outof/add_objects.webm" type="video/webm">
-              </video>
-          </div>
-          <div class="text-center">
-            <p>Out-Of Distribution (Trained On One-Object Scenes)</p>
           </div>
         </div>
       </div>
@@ -297,11 +118,11 @@ horizontal: false
         If you want to cite our work, please use:
       </p>
       <pre>
-        @inproceedings{Niemeyer2020GIRAFFE,
-          author    = {Michael Niemeyer and Andreas Geiger},  
-          title     = {GIRAFFE: Representing Scenes as Compositional Generative Neural Feature Fields},
-          booktitle   = {Proc. IEEE Conf. on Computer Vision and Pattern Recognition (CVPR)},
-          year      = {2021},
+        @INPROCEEDINGS{Reiser2021ICCV,
+          author = {Christian Reiser and Songyou Peng and Yiyi Liao and Andreas Geiger},
+          title = {KiloNeRF: Speeding up Neural Radiance Fields with Thousands of Tiny MLPs},
+          booktitle = {International Conference on Computer Vision (ICCV)},
+          year = {2021}
         }
       </pre>
     </div>
