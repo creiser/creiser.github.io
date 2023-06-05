@@ -500,8 +500,8 @@ function loadScene(
     });
 
     // Some of the shader code is stored in seperate files
-    viewdepdencyShaderPromise = loadTextFile('viewdependency.glsl');
-    fragmentShaderPromise = loadTextFile('fragment.glsl');
+    viewdepdencyShaderPromise = loadTextFile('/assets/js/merf/viewer/viewdependency.glsl');
+    fragmentShaderPromise = loadTextFile('/assets/js/merf/viewer/fragment.glsl');
     textPromises =
         [sceneParamsPromise, viewdepdencyShaderPromise, fragmentShaderPromise];
 
