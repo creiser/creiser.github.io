@@ -1,7 +1,7 @@
 
 function start() {
   const params = new URL(window.location.href).searchParams;
-  dirUrl = 'assets/scenes/' + params.get('scene') + '.json';
+  dirUrl = '/assets/scenes/' + params.get('scene') + '.json';
   const qualityPresets = ['phone', 'low', 'medium', 'high'];
   for (const quality of qualityPresets) {
     console.log(quality);
